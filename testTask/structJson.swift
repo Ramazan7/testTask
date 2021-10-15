@@ -11,6 +11,4 @@ struct structJson: Decodable {
     let id:Int
     let title:String
     let body:String
-    
- //   let ingredients:ingredients?
 }
