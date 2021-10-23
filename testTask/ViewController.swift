@@ -17,16 +17,25 @@ class ViewController: UIViewController {
  }
     func designMenu(){
         
+        
+        let stackView = UIStackView()
+        stackView.axis  = .vertical
+        stackView.spacing = 20
+        stackView.alignment = .center
+        view.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40).isActive = true
+        
         let labelTitle = UILabel()
         labelTitle.text = "Тестовое Задание"
         labelTitle.numberOfLines = 0
         labelTitle.font = UIFont(name: labelTitle.font.fontName, size: 33)
         labelTitle.textColor = .orange
-        view.addSubview(labelTitle)
+        stackView.addArrangedSubview(labelTitle)
 
-        labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        labelTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         
         
         
@@ -36,11 +45,8 @@ class ViewController: UIViewController {
         buttonStart.setTitleColor(.blue, for: .normal)
         buttonStart.addTarget(self, action: #selector(openListView), for: .touchUpInside)
         
-        view.addSubview(buttonStart)
+        stackView.addArrangedSubview(buttonStart)
         
-        buttonStart.translatesAutoresizingMaskIntoConstraints = false
-        buttonStart.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        buttonStart.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         
     }

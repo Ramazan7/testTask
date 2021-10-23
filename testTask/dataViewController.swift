@@ -19,7 +19,7 @@ class dataViewController: UIViewController {
     
     
     func designMenu(){
-        
+        //blur background
         let blurEffect = UIBlurEffect(style: .light)
         let visualEffect = UIVisualEffectView()
         view.addSubview(visualEffect)
@@ -30,33 +30,36 @@ class dataViewController: UIViewController {
         visualEffect.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         visualEffect.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
+        let stackView = UIStackView()
+        stackView.axis  = .vertical
+        stackView.spacing = 20
+        stackView.alignment = .center
+        view.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive = true
+        stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40).isActive = true
+       
+        let labelViewTitle = UILabel()
+        labelViewTitle.text = "Title:"
+        labelViewTitle.numberOfLines = 0
+        labelViewTitle.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        labelViewTitle.textColor = .orange
+        stackView.addArrangedSubview(labelViewTitle)
         
         let labelTitle = UILabel()
         labelTitle.text = structData?.title
         labelTitle.numberOfLines = 0
         labelTitle.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         labelTitle.textColor = .orange
-        view.addSubview(labelTitle)
-        
-        labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -25).isActive = true
-        labelTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
-        labelTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        
+        stackView.addArrangedSubview(labelTitle)
+      
         let labelBody = UILabel()
         labelBody.text = structData?.body
         labelBody.numberOfLines = 0
         
-        view.addSubview(labelBody)
-        
-        labelBody.translatesAutoresizingMaskIntoConstraints = false
-        labelBody.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -25).isActive = true
-        labelBody.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
-        labelBody.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        
-        
+        stackView.addArrangedSubview(labelBody)
         
     }
 
